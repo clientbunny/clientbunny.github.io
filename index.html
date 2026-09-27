@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bunny Client</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">🐰 Bunny Client</a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+        <li>
+          <a class="nav-gh" href="https://github.com/clientbunny" target="_blank">
+            <svg height="18" viewBox="0 0 16 16" width="18" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+              -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+              .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+              -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+              1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+              1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+              1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="badge">Minecraft 1.21.1</div>
+      <h1>🐰 Bunny Client</h1>
+      <p class="hero-sub">
+        A standalone, Lunar Client‑inspired mod with Discord Rich Presence,
+        quality‑of‑life overlays, and FPS improvements — all in one package.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/clientbunny/bunny-client/releases/latest">
+          ⬇ Download Latest
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/clientbunny/bunny-client" target="_blank">
+          View Source
+        </a>
+      </div>
+      <p class="hero-note">Free &amp; open source · Built for Fabric · Minecraft 1.21.1</p>
+    </div>
+    <div class="hero-glow"></div>
+  </header>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Features</h2>
+      <p class="section-sub">Everything you need, built right in.</p>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>FPS Counter</h3>
+          <p>See your frames per second in real time with a clean, minimal on‑screen overlay.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📍</div>
+          <h3>Coordinates</h3>
+          <p>Always know where you are. X, Y, Z displayed neatly on your HUD at all times.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎮</div>
+          <h3>Discord Rich Presence</h3>
+          <p>Custom Discord RPC integration — show off that you're playing with Bunny Client.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Armor Status</h3>
+          <p>Track your armor durability at a glance without opening your inventory.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🧪</div>
+          <h3>Potion Status</h3>
+          <p>Active potion effects displayed on your HUD so you never lose track of your buffs.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🖱️</div>
+          <h3>CPS Counter</h3>
+          <p>Monitor your clicks per second live — useful for PvP and click speed tracking.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🐰</div>
+          <h3>Bunny Indicator</h3>
+          <p>Players running Bunny Client get a 🐰 shown before their name so you always know who's in the crew.</p>
+          <span class="wip-badge">Work in Progress</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Installation</h2>
+      <p class="section-sub">Get up and running in under a minute.</p>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <div>
+            <strong>Install Fabric</strong>
+            <p>Download and run the <a href="https://fabricmc.net/use/installer/" target="_blank">Fabric Installer</a> for Minecraft <code>1.21.1</code>.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div>
+            <strong>Add Fabric API</strong>
+            <p>Download <a href="https://modrinth.com/mod/fabric-api" target="_blank">Fabric API</a> and drop it into your <code>.minecraft/mods</code> folder.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div>
+            <strong>Download Bunny Client</strong>
+            <p>Grab the latest <code>.jar</code> from the <a href="https://github.com/clientbunny/bunny-client/releases/latest" target="_blank">Releases page</a>.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div>
+            <strong>Drop it in mods &amp; launch</strong>
+            <p>Move the <code>.jar</code> into your <code>.minecraft/mods</code> folder and launch Minecraft with the Fabric profile.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CHANGELOG -->
+  <section id="changelog" class="section">
+    <div class="container">
+      <h2 class="section-title">Changelog</h2>
+      <p class="section-sub">What's new in each release.</p>
+      <div class="changelog">
+        <div class="changelog-entry">
+          <div class="changelog-header">
+            <span class="version-tag">v1.0.0</span>
+            <span class="changelog-date">Initial Release</span>
+          </div>
+          <ul>
+            <li>FPS Counter overlay</li>
+            <li>Coordinates HUD</li>
+            <li>Discord Rich Presence integration</li>
+            <li>Armor &amp; Potion status displays</li>
+            <li>CPS Counter</li>
+            <li>🐰 Bunny player indicator (WIP — currently shows on all players)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>🐰 <strong>Bunny Client</strong> — open source Minecraft mod for 1.21.1</p>
+      <p><a href="https://github.com/clientbunny/bunny-client" target="_blank">github.com/clientbunny/bunny-client</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
