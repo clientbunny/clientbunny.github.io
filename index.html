@@ -18,6 +18,7 @@
         <li><a href="#features">Features</a></li>
         <li><a href="#install">Install</a></li>
         <li><a href="#changelog">Changelog</a></li>
+        <li><a href="#credits">Credits</a></li>
         <li>
           <a class="nav-gh" href="https://github.com/clientbunny" target="_blank">
             <svg height="18" viewBox="0 0 16 16" width="18" fill="currentColor">
@@ -40,7 +41,7 @@
   <!-- HERO -->
   <header class="hero">
     <div class="hero-inner">
-      <div class="badge">Minecraft 1.21.11</div>
+      <div class="badge">Minecraft 1.21.1</div>
       <h1>🐰 Bunny Client</h1>
       <p class="hero-sub">
         A standalone, Lunar Client‑inspired mod with Discord Rich Presence,
@@ -54,7 +55,7 @@
           View Source
         </a>
       </div>
-      <p class="hero-note">Free &amp; open source · Built for Fabric · Minecraft 1.21.11</p>
+      <p class="hero-note">Free &amp; open source · Built for Fabric · Minecraft 1.21.1</p>
     </div>
     <div class="hero-glow"></div>
   </header>
@@ -123,7 +124,7 @@
           <span class="step-num">1</span>
           <div>
             <strong>Install Fabric</strong>
-            <p>Download and run the <a href="https://fabricmc.net/use/installer/" target="_blank">Fabric Installer</a> for Minecraft <code>1.21.11</code>.</p>
+            <p>Download and run the <a href="https://fabricmc.net/use/installer/" target="_blank">Fabric Installer</a> for Minecraft <code>1.21.1</code>.</p>
           </div>
         </li>
         <li>
@@ -175,13 +176,103 @@
     </div>
   </section>
 
+  <!-- CREDITS -->
+  <section id="credits" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Credits</h2>
+      <p class="section-sub">The person behind Bunny Client.</p>
+      <div class="credits-card">
+
+        <!-- 3D Skin Viewer -->
+        <div class="skin-wrapper">
+          <div class="nametag" id="nametag-text">6cutefemboy7</div>
+          <canvas id="skin-canvas"></canvas>
+        </div>
+
+        <!-- Bio -->
+        <div class="credits-bio">
+          <h3 class="credits-name">6cutefemboy7</h3>
+          <p class="credits-role">🐰 Lead Developer &amp; Creator</p>
+          <p class="credits-text">
+            <!-- ✏️ Edit this bio however you like! -->
+            Hey! I'm the solo developer behind Bunny Client. I built this mod because I wanted
+            a lightweight, open‑source client mod with the features I actually use every day —
+            no bloat, just the good stuff.
+          </p>
+          <div class="credits-links">
+            <a href="https://github.com/clientbunny" target="_blank">
+              <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
+                .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+                -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+                1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+                1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
+                1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>🐰 <strong>Bunny Client</strong> — open source Minecraft mod for 1.21.11</p>
+      <p>🐰 <strong>Bunny Client</strong> — open source Minecraft mod for 1.21.1</p>
       <p><a href="https://github.com/clientbunny/bunny-client" target="_blank">github.com/clientbunny/bunny-client</a></p>
     </div>
   </footer>
+
+  <!-- skinview3d — 3D Minecraft skin renderer -->
+  <script src="https://unpkg.com/skinview3d@latest/bundles/skinview3d.bundle.js"></script>
+  <script>
+    // ── Config ──────────────────────────────────────────────────────
+    // When you change your username to xythea, update both values below:
+    const MC_USERNAME  = "6cutefemboy7";
+    const DISPLAY_NAME = "6cutefemboy7";
+    // ────────────────────────────────────────────────────────────────
+
+    const nametagEl = document.getElementById("nametag-text");
+    const nameEls   = document.querySelectorAll(".credits-name");
+    nametagEl.textContent = DISPLAY_NAME;
+    nameEls.forEach(el => el.textContent = DISPLAY_NAME);
+
+    const viewer = new skinview3d.SkinViewer({
+      canvas:  document.getElementById("skin-canvas"),
+      width:   240,
+      height:  400,
+      skin:    `https://minotar.net/skin/${MC_USERNAME}`,
+    });
+
+    // Slow idle walk animation
+    viewer.animation = new skinview3d.WalkingAnimation();
+    viewer.animation.speed = 0.5;
+
+    // Mouse drag to rotate, no zoom
+    viewer.controls.enableRotate = true;
+    viewer.controls.enableZoom   = false;
+    viewer.controls.enablePan    = false;
+
+    // Nice default angle
+    viewer.camera.rotation.x = -0.1;
+
+    // Subtle auto-rotate that pauses when you drag
+    let autoRotate = true;
+    viewer.canvas.addEventListener("mousedown", () => autoRotate = false);
+    viewer.canvas.addEventListener("mouseup",   () => { setTimeout(() => autoRotate = true, 2000); });
+    viewer.canvas.addEventListener("touchstart", () => autoRotate = false);
+    viewer.canvas.addEventListener("touchend",   () => { setTimeout(() => autoRotate = true, 2000); });
+
+    (function animate() {
+      requestAnimationFrame(animate);
+      if (autoRotate) viewer.playerObject.rotation.y += 0.005;
+    })();
+  </script>
 
 </body>
 </html>
