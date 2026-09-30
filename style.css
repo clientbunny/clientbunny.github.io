@@ -1,84 +1,121 @@
-/* ── Reset & Base ────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════
+   BUNNY CLIENT — Stylesheet
+   Theme: Soft Dark Kawaii (cute but professional ✨)
+
+   HOW COLORS WORK:
+   All colors are defined as CSS variables at the top (in :root {}).
+   ✏️ EDIT those variables to change the entire site's color scheme at once.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Color & Design Tokens ───────────────────────────────────── */
 :root {
-  --bg:        #0d0d0f;
-  --bg-alt:    #111115;
-  --surface:   #18181d;
-  --border:    #2a2a35;
-  --primary:   #a78bfa;   /* soft violet */
-  --primary-d: #7c3aed;
-  --accent:    #f472b6;   /* pink */
-  --text:      #e2e2ef;
-  --muted:     #6b6b85;
-  --radius:    12px;
-  --radius-lg: 20px;
+  /* ✏️ EDIT these to change the whole site's color scheme ──────── */
+
+  /* Backgrounds */
+  --bg:       #0d0a14;   /* main page background — very dark purple-black */
+  --bg-tint:  #130f1e;   /* slightly lighter, used for alternating sections */
+  --surface:  #1c1729;   /* card/panel background */
+  --surface2: #231d35;   /* slightly lighter card variant */
+
+  /* Borders */
+  --border:   rgba(255, 182, 230, 0.12);  /* soft pink border, barely visible */
+  --border-h: rgba(255, 182, 230, 0.35);  /* border on hover */
+
+  /* Brand colors */
+  --pink:     #ffb6e1;   /* cotton candy pink — primary accent */
+  --pink-d:   #e879b8;   /* deeper pink — used for button hover/shadows */
+  --lavender: #c4b5fd;   /* soft lavender — secondary accent */
+  --mint:     #a8edcd;   /* soft mint green — tertiary accent */
+
+  /* Text */
+  --text:     #f2e9ff;   /* main text — very light lavender-white */
+  --muted:    #9c88b8;   /* secondary/dim text */
+
+  /* Geometry */
+  --radius:    14px;   /* card border radius */
+  --radius-lg: 22px;   /* large radius (hero sections, big cards) */
+  --radius-pill: 999px; /* fully rounded pill shapes */
+
+  /* ─────────────────────────────────────────────────────────── */
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Nunito', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  /* Subtle dot-grid background pattern for texture */
+  background-image: radial-gradient(rgba(196, 181, 253, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-a { color: var(--primary); text-decoration: none; }
+/* Links */
+a { color: var(--pink); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* Inline code — used in installation steps */
 code {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85em;
-  background: var(--surface);
+  font-size: 0.83em;
+  background: var(--surface2);
   border: 1px solid var(--border);
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 6px;
-  color: var(--accent);
+  color: var(--mint);
 }
 
-/* ── Navbar ──────────────────────────────────────────────── */
+/* ── Navbar ──────────────────────────────────────────────────── */
+/* The sticky top bar. Blurs the content behind it. */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(13, 13, 15, 0.85);
-  backdrop-filter: blur(14px);
+  background: rgba(13, 10, 20, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
 
 .nav-inner {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
   padding: 0 24px;
-  height: 60px;
+  height: 62px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Logo / site name on the left */
 .nav-logo {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1.1rem;
   color: var(--text);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  transition: color .2s;
 }
-.nav-logo:hover { text-decoration: none; color: var(--primary); }
+.nav-logo:hover { color: var(--pink); text-decoration: none; }
 
+/* Nav link list */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 6px;
+  gap: 4px;
   align-items: center;
 }
 
 .nav-links a {
   color: var(--muted);
   font-size: 0.9rem;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 8px;
+  font-weight: 700;
+  padding: 6px 13px;
+  border-radius: var(--radius-pill);
   transition: color .2s, background .2s;
 }
 .nav-links a:hover {
@@ -87,277 +124,339 @@ code {
   text-decoration: none;
 }
 
+/* The GitHub button on the right of the nav */
 .nav-gh {
-  display: flex !important;
+  display: inline-flex !important;
   align-items: center;
   gap: 6px;
   border: 1px solid var(--border) !important;
   color: var(--text) !important;
+  padding: 6px 14px !important;
 }
-.nav-gh:hover { border-color: var(--primary) !important; color: var(--primary) !important; }
+.nav-gh:hover {
+  border-color: var(--pink) !important;
+  color: var(--pink) !important;
+  background: rgba(255, 182, 225, 0.06) !important;
+}
 
-/* ── Hero ────────────────────────────────────────────────── */
+/* ── Hero Section ────────────────────────────────────────────── */
+/* The big intro area at the very top */
 .hero {
   position: relative;
   overflow: hidden;
   text-align: center;
-  padding: 100px 24px 90px;
+  padding: 110px 24px 100px;
 }
 
-.hero-glow {
+/* Decorative blobs — soft glowing circles in the background.
+   They're purely decorative. Adjust colors/positions in the blob classes below. */
+.blob {
   position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 400px;
-  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(80px);
   pointer-events: none;
+  opacity: 0.18;
 }
+/* ✏️ EDIT blob sizes, positions, and colors to tweak the background glow effect */
+.blob-1 { width: 500px; height: 500px; background: var(--pink);     top: -150px; left: -100px; }
+.blob-2 { width: 400px; height: 400px; background: var(--lavender); top: -80px;  right: -80px; }
+.blob-3 { width: 300px; height: 300px; background: var(--mint);     bottom: -50px; left: 40%;  }
 
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
-.badge {
+/* The small pill badge above the title (e.g. Minecraft version) */
+.hero-badge {
   display: inline-block;
-  background: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.3);
-  color: var(--primary);
+  background: rgba(255, 182, 225, 0.1);
+  border: 1px solid rgba(255, 182, 225, 0.28);
+  color: var(--pink);
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 5px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 26px;
   text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 999px;
-  margin-bottom: 24px;
 }
 
+/* Main title */
 .hero h1 {
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
-  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.1;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #e2e2ef 30%, var(--primary) 100%);
+  /* Pink-to-lavender gradient text */
+  background: linear-gradient(135deg, var(--pink) 0%, var(--lavender) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Subtitle under the title */
 .hero-sub {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--muted);
-  max-width: 560px;
+  max-width: 520px;
   margin: 0 auto 36px;
+  font-weight: 500;
 }
 
+/* Container for the two hero buttons */
 .hero-actions {
   display: flex;
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
+/* Small note under the buttons */
+.hero-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+/* Shared button styles */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 26px;
-  border-radius: 10px;
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);  /* fully rounded pill shape */
+  font-family: 'Nunito', sans-serif;
   font-size: 0.95rem;
-  font-weight: 600;
-  transition: transform .15s, box-shadow .15s, background .2s;
+  font-weight: 800;
+  transition: transform .15s, box-shadow .2s, background .2s, color .2s;
   cursor: pointer;
 }
 .btn:hover { transform: translateY(-2px); text-decoration: none; }
 
+/* Primary button — solid pink fill */
 .btn-primary {
-  background: var(--primary);
-  color: #0d0d0f;
-  box-shadow: 0 4px 20px rgba(167, 139, 250, 0.35);
+  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-d) 100%);
+  color: #1a0a14;
+  box-shadow: 0 4px 24px rgba(255, 100, 180, 0.3);
 }
-.btn-primary:hover { box-shadow: 0 6px 28px rgba(167, 139, 250, 0.5); background: #b89ffb; }
+.btn-primary:hover {
+  box-shadow: 0 6px 32px rgba(255, 100, 180, 0.5);
+}
 
+/* Ghost button — transparent with a border */
 .btn-ghost {
   background: transparent;
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border-h);
 }
-.btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
-
-.hero-note {
-  font-size: 0.8rem;
-  color: var(--muted);
+.btn-ghost:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  background: rgba(255, 182, 225, 0.06);
 }
 
-/* ── Sections ────────────────────────────────────────────── */
-.section { padding: 80px 24px; }
-.section-alt { background: var(--bg-alt); }
+/* ── Section Layout ──────────────────────────────────────────── */
+/* Shared styles for all content sections */
+.section { padding: 86px 24px; }
 
-.container { max-width: 1000px; margin: 0 auto; }
+/* Alternating tinted sections for visual rhythm */
+.section-tinted { background: var(--bg-tint); }
 
-.section-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
+/* Max-width wrapper — keeps content from stretching too wide */
+.container { max-width: 980px; margin: 0 auto; }
+
+/* Section heading + subtitle block */
+.section-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-weight: 900;
   letter-spacing: -0.03em;
   margin-bottom: 8px;
-  text-align: center;
 }
 
-.section-sub {
-  text-align: center;
+.section-header p {
   color: var(--muted);
-  margin-bottom: 48px;
   font-size: 1rem;
+  font-weight: 500;
 }
 
-/* ── Features Grid ───────────────────────────────────────── */
+/* ── Feature Cards ───────────────────────────────────────────── */
+/* Responsive grid of feature cards. Min card width = 250px */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 18px;
 }
 
+/* Individual feature card */
 .feature-card {
   position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 28px 24px;
-  transition: border-color .2s, transform .2s;
+  padding: 30px 26px;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
 }
 .feature-card:hover {
-  border-color: var(--primary);
-  transform: translateY(-3px);
+  border-color: var(--border-h);
+  transform: translateY(-4px);
+  /* Soft pink glow on hover */
+  box-shadow: 0 8px 32px rgba(255, 100, 180, 0.1);
 }
 
+/* Emoji icon at the top of each card */
 .feature-icon {
-  font-size: 2rem;
+  font-size: 2.1rem;
   margin-bottom: 14px;
+  display: block;
 }
 
+/* Card title */
 .feature-card h3 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
   margin-bottom: 8px;
-  letter-spacing: -0.01em;
 }
 
+/* Card description */
 .feature-card p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
+/* "Work in Progress" badge — shown on unfinished features */
+/* ✏️ EDIT: Remove the <span class="wip-badge"> from a card when the feature is fixed */
 .wip-badge {
   display: inline-block;
   margin-top: 12px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(244, 114, 182, 0.12);
-  border: 1px solid rgba(244, 114, 182, 0.3);
-  color: var(--accent);
+  background: rgba(168, 237, 205, 0.1);
+  border: 1px solid rgba(168, 237, 205, 0.28);
+  color: var(--mint);
   padding: 3px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
-/* ── Install Steps ───────────────────────────────────────── */
+/* ── Installation Steps ──────────────────────────────────────── */
+/* Vertical list of numbered steps */
 .steps {
   list-style: none;
+  max-width: 660px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 680px;
-  margin: 0 auto;
+  gap: 16px;
 }
 
+/* Individual step row */
 .steps li {
   display: flex;
-  gap: 20px;
   align-items: flex-start;
+  gap: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 24px 26px;
+  transition: border-color .2s;
 }
+.steps li:hover { border-color: var(--border-h); }
 
+/* Circular step number badge */
 .step-num {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-d), var(--primary));
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.9rem;
+  /* Pink-to-lavender gradient */
+  background: linear-gradient(135deg, var(--pink), var(--lavender));
+  color: #1a0a14;
+  font-weight: 900;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.steps li strong {
+/* Step text container */
+.step-body strong {
   display: block;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 4px;
 }
 
-.steps li p {
-  font-size: 0.9rem;
+.step-body p {
+  font-size: 0.88rem;
   color: var(--muted);
 }
 
-/* ── Changelog ───────────────────────────────────────────── */
+/* ── Changelog ───────────────────────────────────────────────── */
+/* Stacked list of version entries */
 .changelog {
-  max-width: 680px;
+  max-width: 660px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
+/* One version entry block */
 .changelog-entry {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 24px 28px;
+  padding: 26px 28px;
+  transition: border-color .2s;
 }
+.changelog-entry:hover { border-color: var(--border-h); }
 
-.changelog-header {
+/* Top row: version tag + date */
+.changelog-meta {
   display: flex;
   align-items: center;
   gap: 14px;
   margin-bottom: 16px;
 }
 
+/* Version number pill (e.g. "v1.0.0") */
 .version-tag {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  background: rgba(167, 139, 250, 0.12);
-  border: 1px solid rgba(167, 139, 250, 0.3);
-  color: var(--primary);
+  background: rgba(255, 182, 225, 0.1);
+  border: 1px solid rgba(255, 182, 225, 0.28);
+  color: var(--pink);
   padding: 4px 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
 }
 
+/* Date or release label next to the version number */
 .changelog-date {
   font-size: 0.85rem;
   color: var(--muted);
+  font-weight: 600;
 }
 
+/* Bulleted change list */
 .changelog-entry ul {
   padding-left: 20px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .changelog-entry li {
@@ -365,139 +464,190 @@ code {
   color: var(--muted);
 }
 
-/* ── Footer ──────────────────────────────────────────────── */
-.footer {
-  background: var(--bg-alt);
-  border-top: 1px solid var(--border);
-  padding: 36px 24px;
-  text-align: center;
+.changelog-entry em {
+  font-style: italic;
+  font-size: 0.85em;
 }
 
-.footer p {
-  color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 2;
-}
-
-/* ── Responsive ──────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .nav-links li:not(:last-child) { display: none; }
-  .hero { padding: 70px 20px 60px; }
-  .steps li { flex-direction: column; gap: 12px; }
-}
-
-/* ── Credits ─────────────────────────────────────────────── */
+/* ── Credits Section ─────────────────────────────────────────── */
+/* Side-by-side layout: 3D skin on the left, bio text on the right */
 .credits-card {
   display: flex;
   align-items: center;
-  gap: 56px;
-  max-width: 780px;
+  gap: 60px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
-/* Skin viewer container */
+/* Wrapper around the 3D canvas + nametag + hint */
 .skin-wrapper {
-  position: relative;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0;
 }
 
-/* Minecraft-style floating nametag */
+/* Minecraft-style nametag that floats above the skin */
 .nametag {
-  position: relative;
-  z-index: 2;
-  margin-bottom: 6px;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 4px;
-  letter-spacing: 0.03em;
+  padding: 5px 14px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
   white-space: nowrap;
-  box-shadow:
-    2px 2px 0 rgba(0,0,0,0.5),
-    0 0 12px rgba(167, 139, 250, 0.3);
-  animation: float 3s ease-in-out infinite;
+  margin-bottom: 6px;
+  /* Soft pink glow around the tag */
+  box-shadow: 0 0 16px rgba(255, 100, 180, 0.35), 2px 2px 0 rgba(0,0,0,0.5);
+  /* Gentle floating up-and-down animation */
+  animation: float 3.5s ease-in-out infinite;
+  position: relative;
 }
+/* The small downward arrow on the nametag */
 .nametag::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -6px;
   left: 50%;
   transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.72);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.75);
 }
 
+/* Floating animation used by the nametag */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-5px); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
 }
 
+/* The 3D canvas itself */
 #skin-canvas {
   display: block;
   cursor: grab;
-  border-radius: 12px;
+  /* Soft pink/lavender glow around the canvas */
+  filter: drop-shadow(0 0 24px rgba(255, 100, 180, 0.2));
 }
 #skin-canvas:active { cursor: grabbing; }
 
-/* Bio text side */
-.credits-bio {
-  flex: 1;
+/* Small "drag to rotate" hint text below the skin */
+.skin-hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 700;
+  margin-top: 10px;
+  letter-spacing: 0.02em;
 }
 
+/* Bio text column */
+.credits-bio { flex: 1; }
+
+/* Developer name */
 .credits-name {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.6rem;
+  font-weight: 900;
   letter-spacing: -0.03em;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
+/* Role/title line */
 .credits-role {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 16px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--pink);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
+  margin-bottom: 18px;
 }
 
+/* Bio paragraph */
 .credits-text {
   font-size: 0.95rem;
   color: var(--muted);
-  line-height: 1.75;
-  margin-bottom: 24px;
+  line-height: 1.8;
+  margin-bottom: 26px;
+  font-weight: 500;
 }
 
+/* Row of social/link buttons */
 .credits-links {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
+/* Each individual link button */
 .credits-links a {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 8px 18px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  padding: 9px 20px;
+  border: 1.5px solid var(--border-h);
+  border-radius: var(--radius-pill);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 800;
   color: var(--text);
-  transition: border-color .2s, color .2s;
+  transition: border-color .2s, color .2s, background .2s;
 }
 .credits-links a:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--pink);
+  color: var(--pink);
+  background: rgba(255, 182, 225, 0.06);
   text-decoration: none;
 }
 
-@media (max-width: 680px) {
-  .credits-card { flex-direction: column; gap: 24px; text-align: center; }
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer {
+  background: var(--bg-tint);
+  border-top: 1px solid var(--border);
+  padding: 44px 24px;
+  text-align: center;
+}
+
+/* Large logo text in the footer */
+.footer-logo {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+/* Tagline under the logo */
+.footer-sub {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* GitHub link */
+.footer-link {
+  font-size: 0.82rem;
+}
+.footer-link a { color: var(--muted); font-weight: 600; }
+.footer-link a:hover { color: var(--pink); }
+
+/* ── Responsive — Mobile Layout ──────────────────────────────── */
+/* Adjustments for small screens (phones) */
+@media (max-width: 600px) {
+  /* Hide most nav links on mobile, only keep the GitHub button */
+  .nav-links li:not(:last-child) { display: none; }
+
+  /* Reduce hero padding */
+  .hero { padding: 72px 20px 60px; }
+
+  /* Stack install steps vertically */
+  .steps li { flex-direction: column; gap: 12px; }
+}
+
+/* On medium screens, stack credits vertically */
+@media (max-width: 700px) {
+  .credits-card {
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+  }
   .credits-links { justify-content: center; }
 }

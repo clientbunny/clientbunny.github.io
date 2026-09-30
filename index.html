@@ -3,25 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✏️ EDIT: Change the browser tab title here -->
   <title>Bunny Client</title>
+
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonts: "Nunito" is the main font (rounded & cute but readable) -->
+  <!-- "JetBrains Mono" is used for code snippets and version tags -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ════════════════════════════════════════════════════════
+       NAVBAR — the top navigation bar
+       ✏️ EDIT: Add/remove nav links here. The logo is on the left.
+       ════════════════════════════════════════════════════════ -->
   <nav class="navbar">
     <div class="nav-inner">
+
+      <!-- ✏️ EDIT: Change the logo text/emoji here -->
       <a class="nav-logo" href="#">🐰 Bunny Client</a>
+
       <ul class="nav-links">
+        <!-- ✏️ EDIT: Each <li> is one nav link. href="#id" scrolls to that section -->
         <li><a href="#features">Features</a></li>
         <li><a href="#install">Install</a></li>
         <li><a href="#changelog">Changelog</a></li>
         <li><a href="#credits">Credits</a></li>
+        <!-- GitHub button — always shown, links to your repo -->
         <li>
           <a class="nav-gh" href="https://github.com/clientbunny" target="_blank">
-            <svg height="18" viewBox="0 0 16 16" width="18" fill="currentColor">
+            <!-- GitHub logo SVG — no need to edit this -->
+            <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
               <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
               0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
               -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
@@ -38,15 +53,32 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ════════════════════════════════════════════════════════
+       HERO — the big intro section at the top of the page
+       ════════════════════════════════════════════════════════ -->
   <header class="hero">
+
+    <!-- Decorative floating blobs in the background — purely visual, no need to edit -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
     <div class="hero-inner">
-      <div class="badge">Minecraft 1.21.1</div>
+
+      <!-- ✏️ EDIT: The small pill badge above the title (e.g. Minecraft version) -->
+      <div class="hero-badge">✨ Minecraft 1.21.11</div>
+
+      <!-- ✏️ EDIT: Main title -->
       <h1>🐰 Bunny Client</h1>
+
+      <!-- ✏️ EDIT: Subtitle / short description shown under the title -->
       <p class="hero-sub">
         A standalone, Lunar Client‑inspired mod with Discord Rich Presence,
-        quality‑of‑life overlays, and FPS improvements — all in one package.
+        quality‑of‑life overlays, and small FPS improvements — all in one adorable package.
       </p>
+
+      <!-- ✏️ EDIT: Hero buttons. btn-primary = solid pink button, btn-ghost = outlined button -->
+      <!-- Update the href links to point to your actual GitHub releases page -->
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://github.com/clientbunny/bunny-client/releases/latest">
           ⬇ Download Latest
@@ -55,34 +87,46 @@
           View Source
         </a>
       </div>
-      <p class="hero-note">Free &amp; open source · Built for Fabric · Minecraft 1.21.1</p>
+
+      <!-- ✏️ EDIT: Small note under the buttons -->
+      <p class="hero-note">free &amp; open source · fabric mod · made with 🩷</p>
+
     </div>
-    <div class="hero-glow"></div>
   </header>
 
-  <!-- FEATURES -->
+  <!-- ════════════════════════════════════════════════════════
+       FEATURES — grid of feature cards
+       ✏️ EDIT: Copy/paste a <div class="feature-card"> block to add a new feature.
+                Remove a block to remove a feature.
+       ════════════════════════════════════════════════════════ -->
   <section id="features" class="section">
     <div class="container">
-      <h2 class="section-title">Features</h2>
-      <p class="section-sub">Everything you need, built right in.</p>
+      <div class="section-header">
+        <!-- ✏️ EDIT: Section title and subtitle -->
+        <h2>✨ Features</h2>
+        <p>Everything you need, all built right in.</p>
+      </div>
+
       <div class="features-grid">
+
+        <!-- Each card: change the emoji (feature-icon), title (h3), and description (p) -->
 
         <div class="feature-card">
           <div class="feature-icon">📈</div>
           <h3>FPS Counter</h3>
-          <p>See your frames per second in real time with a clean, minimal on‑screen overlay.</p>
+          <p>See your frames per second in real time with a clean on‑screen overlay.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">📍</div>
           <h3>Coordinates</h3>
-          <p>Always know where you are. X, Y, Z displayed neatly on your HUD at all times.</p>
+          <p>Always know where you are. X, Y, Z displayed neatly on your HUD.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🎮</div>
           <h3>Discord Rich Presence</h3>
-          <p>Custom Discord RPC integration — show off that you're playing with Bunny Client.</p>
+          <p>Custom RPC integration — show the world you're playing with Bunny Client.</p>
         </div>
 
         <div class="feature-card">
@@ -94,19 +138,21 @@
         <div class="feature-card">
           <div class="feature-icon">🧪</div>
           <h3>Potion Status</h3>
-          <p>Active potion effects displayed on your HUD so you never lose track of your buffs.</p>
+          <p>Active potion effects on your HUD so you never lose track of your buffs.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🖱️</div>
           <h3>CPS Counter</h3>
-          <p>Monitor your clicks per second live — useful for PvP and click speed tracking.</p>
+          <p>Monitor your clicks per second live — great for PvP and tracking speed.</p>
         </div>
 
+        <!-- ✏️ NOTE: This card has a "Work in Progress" badge because the feature is buggy -->
+        <!-- Remove the <span class="wip-badge"> line once the feature is fixed! -->
         <div class="feature-card">
           <div class="feature-icon">🐰</div>
           <h3>Bunny Indicator</h3>
-          <p>Players running Bunny Client get a 🐰 shown before their name so you always know who's in the crew.</p>
+          <p>Bunny Client users get a 🐰 before their name so you know who's in the crew.</p>
           <span class="wip-badge">Work in Progress</span>
         </div>
 
@@ -114,92 +160,138 @@
     </div>
   </section>
 
-  <!-- INSTALL -->
-  <section id="install" class="section section-alt">
+  <!-- ════════════════════════════════════════════════════════
+       INSTALL — step-by-step installation guide
+       ✏️ EDIT: Each <li> is one step. Change the text inside <strong> (step title)
+                and <p> (step description). Add more <li> blocks for more steps.
+       ════════════════════════════════════════════════════════ -->
+  <section id="install" class="section section-tinted">
     <div class="container">
-      <h2 class="section-title">Installation</h2>
-      <p class="section-sub">Get up and running in under a minute.</p>
+      <div class="section-header">
+        <!-- ✏️ EDIT: Section title and subtitle -->
+        <h2>🌸 Installation</h2>
+        <p>Get up and running in under a minute.</p>
+      </div>
+
       <ol class="steps">
+
         <li>
-          <span class="step-num">1</span>
-          <div>
+          <div class="step-num">1</div>
+          <div class="step-body">
             <strong>Install Fabric</strong>
-            <p>Download and run the <a href="https://fabricmc.net/use/installer/" target="_blank">Fabric Installer</a> for Minecraft <code>1.21.1</code>.</p>
+            <!-- ✏️ EDIT: Update the Minecraft version in the link text if needed -->
+            <p>Download and run the <a href="https://fabricmc.net/use/installer/" target="_blank">Fabric Installer</a> for Minecraft <code>1.21.11</code>.</p>
           </div>
         </li>
+
         <li>
-          <span class="step-num">2</span>
-          <div>
+          <div class="step-num">2</div>
+          <div class="step-body">
             <strong>Add Fabric API</strong>
             <p>Download <a href="https://modrinth.com/mod/fabric-api" target="_blank">Fabric API</a> and drop it into your <code>.minecraft/mods</code> folder.</p>
           </div>
         </li>
+
         <li>
-          <span class="step-num">3</span>
-          <div>
+          <div class="step-num">3</div>
+          <div class="step-body">
             <strong>Download Bunny Client</strong>
+            <!-- ✏️ EDIT: Update this link once you have a releases page -->
             <p>Grab the latest <code>.jar</code> from the <a href="https://github.com/clientbunny/bunny-client/releases/latest" target="_blank">Releases page</a>.</p>
           </div>
         </li>
+
         <li>
-          <span class="step-num">4</span>
-          <div>
-            <strong>Drop it in mods &amp; launch</strong>
-            <p>Move the <code>.jar</code> into your <code>.minecraft/mods</code> folder and launch Minecraft with the Fabric profile.</p>
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Drop it in &amp; launch</strong>
+            <p>Move the <code>.jar</code> into <code>.minecraft/mods</code> and launch Minecraft using the Fabric profile. That's it!</p>
           </div>
         </li>
+
       </ol>
     </div>
   </section>
 
-  <!-- CHANGELOG -->
+  <!-- ════════════════════════════════════════════════════════
+       CHANGELOG — version history
+       ✏️ EDIT: Copy a <div class="changelog-entry"> block to add a new version.
+                Put the newest version at the top.
+       ════════════════════════════════════════════════════════ -->
   <section id="changelog" class="section">
     <div class="container">
-      <h2 class="section-title">Changelog</h2>
-      <p class="section-sub">What's new in each release.</p>
+      <div class="section-header">
+        <!-- ✏️ EDIT: Section title and subtitle -->
+        <h2>📋 Changelog</h2>
+        <p>What's new in each release.</p>
+      </div>
+
       <div class="changelog">
+
+        <!-- ✏️ EDIT: One block per version. Newest version goes first (at the top). -->
         <div class="changelog-entry">
-          <div class="changelog-header">
+          <div class="changelog-meta">
+            <!-- ✏️ EDIT: Version number -->
             <span class="version-tag">v1.0.0</span>
+            <!-- ✏️ EDIT: Release date or label -->
             <span class="changelog-date">Initial Release</span>
           </div>
+          <!-- ✏️ EDIT: Each <li> is one change/feature added in this version -->
           <ul>
             <li>FPS Counter overlay</li>
             <li>Coordinates HUD</li>
             <li>Discord Rich Presence integration</li>
             <li>Armor &amp; Potion status displays</li>
             <li>CPS Counter</li>
-            <li>🐰 Bunny player indicator (WIP — currently shows on all players)</li>
+            <li>🐰 Bunny player indicator <em>(WIP — currently shows on all players)</em></li>
           </ul>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CREDITS -->
-  <section id="credits" class="section section-alt">
+  <!-- ════════════════════════════════════════════════════════
+       CREDITS — 3D skin viewer + bio
+       ════════════════════════════════════════════════════════ -->
+  <section id="credits" class="section section-tinted">
     <div class="container">
-      <h2 class="section-title">Credits</h2>
-      <p class="section-sub">The person behind Bunny Client.</p>
+      <div class="section-header">
+        <!-- ✏️ EDIT: Section title and subtitle -->
+        <h2>Credits</h2>
+        <p>The person behind Bunny Client.</p>
+      </div>
+
       <div class="credits-card">
 
-        <!-- 3D Skin Viewer -->
+        <!-- 3D skin viewer — the canvas is controlled by the script at the bottom of the page -->
         <div class="skin-wrapper">
+          <!-- ✏️ NOTE: This text is overwritten by JavaScript below. Edit MC_USERNAME / DISPLAY_NAME there. -->
           <div class="nametag" id="nametag-text">6cutefemboy7</div>
           <canvas id="skin-canvas"></canvas>
+          <p class="skin-hint">drag to rotate ✨</p>
         </div>
 
-        <!-- Bio -->
+        <!-- Bio section — edit the text here freely -->
         <div class="credits-bio">
+
+          <!-- ✏️ NOTE: This is also overwritten by JS. Edit DISPLAY_NAME in the script below. -->
           <h3 class="credits-name">6cutefemboy7</h3>
+
+          <!-- ✏️ EDIT: Your role/title shown under your name -->
           <p class="credits-role">🐰 Lead Developer &amp; Creator</p>
+
+          <!-- ✏️ EDIT: Your bio! Write whatever you want here. -->
           <p class="credits-text">
-            <!-- ✏️ Edit this bio however you like! -->
-            some bs i am too lazy to think of sum rn
+            Hi, i am xythea, bunny client's creator and lead dev, if you want to inquire about something dm me on discord
           </p>
+
+          <!-- ✏️ EDIT: Add/remove social links here. Each <a> is one button. -->
           <div class="credits-links">
+            <a href="https://discord.gg/bunnyclient" target="_blank">🎮 Discord</a>
             <a href="https://github.com/clientbunny" target="_blank">
-              <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
+              <!-- GitHub icon SVG -->
+              <svg height="15" viewBox="0 0 16 16" width="15" fill="currentColor">
                 <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
                 -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
@@ -211,64 +303,112 @@
               </svg>
               GitHub
             </a>
+            <!-- ✏️ EDIT: Add more links like this:
+            <a href="https://discord.gg/yourserver" target="_blank">🎮 Discord</a>
+            <a href="https://twitter.com/yourhandle" target="_blank">🐦 Twitter</a>
+            -->
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ════════════════════════════════════════════════════════
+       FOOTER
+       ✏️ EDIT: Update the text and links here.
+       ════════════════════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container">
-      <p>🐰 <strong>Bunny Client</strong> — open source Minecraft mod for 1.21.1</p>
-      <p><a href="https://github.com/clientbunny/bunny-client" target="_blank">github.com/clientbunny/bunny-client</a></p>
+      <!-- ✏️ EDIT: Footer tagline -->
+      <p class="footer-logo">🐰 Bunny Client</p>
+      <p class="footer-sub">free &amp; open source minecraft mod · made with 💜</p>
+      <p class="footer-link">
+        <!-- ✏️ EDIT: Update this link to your actual repo -->
+        <a href="https://github.com/clientbunny/bunny-client" target="_blank">github.com/clientbunny/bunny-client</a>
+      </p>
     </div>
   </footer>
 
-  <!-- skinview3d — 3D Minecraft skin renderer -->
+
+  <!-- ════════════════════════════════════════════════════════
+       3D SKIN VIEWER SCRIPT
+       ✏️ EDIT: When you change your username, update these two values:
+                  MC_USERNAME  → your Minecraft username (used to load your skin)
+                  DISPLAY_NAME → what shows on the nametag and in the heading
+       ════════════════════════════════════════════════════════ -->
+
+  <!-- skinview3d library — renders the 3D Minecraft character, loaded from CDN (no install needed) -->
   <script src="https://unpkg.com/skinview3d@latest/bundles/skinview3d.bundle.js"></script>
   <script>
-    // ── Config ──────────────────────────────────────────────────────
-    // When you change your username to xythea, update both values below:
-    const MC_USERNAME  = "6cutefemboy7";
-    const DISPLAY_NAME = "6cutefemboy7";
+    // ✏️ EDIT THESE TWO LINES when you change your username ─────────
+    const MC_USERNAME  = "6cutefemboy7";  // Your Minecraft username (used to fetch skin + cape)
+    const DISPLAY_NAME = "6cutefemboy7";  // What shows on the nametag and heading
     // ────────────────────────────────────────────────────────────────
 
-    const nametagEl = document.getElementById("nametag-text");
-    const nameEls   = document.querySelectorAll(".credits-name");
-    nametagEl.textContent = DISPLAY_NAME;
-    nameEls.forEach(el => el.textContent = DISPLAY_NAME);
+    // Update all the text elements that show your name
+    document.getElementById("nametag-text").textContent = DISPLAY_NAME;
+    document.querySelectorAll(".credits-name").forEach(el => el.textContent = DISPLAY_NAME);
 
+    // Create the 3D skin viewer on the <canvas id="skin-canvas"> element
     const viewer = new skinview3d.SkinViewer({
-      canvas:  document.getElementById("skin-canvas"),
-      width:   240,
-      height:  400,
-      skin:    `https://minotar.net/skin/${MC_USERNAME}`,
+      canvas: document.getElementById("skin-canvas"),
+      width:  220,   // ✏️ EDIT: canvas width in pixels
+      height: 380,   // ✏️ EDIT: canvas height in pixels
+      // Loads your skin from minotar.net using your MC username
+      skin: `https://minotar.net/skin/${MC_USERNAME}`,
     });
 
-    // Slow idle walk animation
+    // ── Cape Loader ───────────────────────────────────────────────────
+    // Automatically fetches your Mojang cape from the Ashcon API.
+    // The cape will appear on the 3D model if your account has one.
+    // If you have no cape, or the API is unreachable, it fails silently.
+    (async () => {
+      try {
+        // Ashcon is a free, CORS-friendly Mojang profile API
+        const res  = await fetch(`https://api.ashcon.app/mojang/v2/user/${MC_USERNAME}`);
+        const data = await res.json();
+
+        // The API returns a cape URL if you have a Mojang cape
+        const capeUrl = data?.textures?.cape?.url;
+
+        if (capeUrl) {
+          // Load the cape onto the 3D model
+          await viewer.loadCape(capeUrl);
+          // ✏️ EDIT: Set to "back" to show the cape on the back, or remove this line to use default
+          viewer.playerObject.cape.visible = back;
+        }
+        // If there's no cape on your account, nothing happens — no error shown
+      } catch (e) {
+        // Cape failed to load (e.g. offline, rate-limited) — skin still shows fine
+        console.warn("Could not load cape:", e);
+      }
+    })();
+    // ─────────────────────────────────────────────────────────────────
+
+    // Slow walking animation — other options: IdleAnimation, RunningAnimation
     viewer.animation = new skinview3d.WalkingAnimation();
-    viewer.animation.speed = 0.5;
+    viewer.animation.speed = 0.45;  // ✏️ EDIT: animation speed (lower = slower)
 
-    // Mouse drag to rotate, no zoom
-    viewer.controls.enableRotate = true;
-    viewer.controls.enableZoom   = false;
-    viewer.controls.enablePan    = false;
+    // Mouse/touch controls
+    viewer.controls.enableRotate = true;   // allow drag-to-rotate
+    viewer.controls.enableZoom   = false;  // disable scroll-to-zoom
+    viewer.controls.enablePan    = false;  // disable panning
 
-    // Nice default angle
-    viewer.camera.rotation.x = -0.1;
+    // Slight tilt on the camera for a nicer default look
+    viewer.camera.rotation.x = -0.08;
 
-    // Subtle auto-rotate that pauses when you drag
+    // Auto-rotate slowly — pauses when you drag, resumes 2 seconds after you let go
     let autoRotate = true;
-    viewer.canvas.addEventListener("mousedown", () => autoRotate = false);
-    viewer.canvas.addEventListener("mouseup",   () => { setTimeout(() => autoRotate = true, 2000); });
-    viewer.canvas.addEventListener("touchstart", () => autoRotate = false);
-    viewer.canvas.addEventListener("touchend",   () => { setTimeout(() => autoRotate = true, 2000); });
+    viewer.canvas.addEventListener("mousedown",  () => autoRotate = false);
+    viewer.canvas.addEventListener("touchstart", () => autoRotate = false, { passive: true });
+    viewer.canvas.addEventListener("mouseup",    () => setTimeout(() => autoRotate = true, 2000));
+    viewer.canvas.addEventListener("touchend",   () => setTimeout(() => autoRotate = true, 2000));
 
-    (function animate() {
-      requestAnimationFrame(animate);
-      if (autoRotate) viewer.playerObject.rotation.y += 0.005;
+    // Animation loop — runs every frame
+    (function tick() {
+      requestAnimationFrame(tick);
+      if (autoRotate) viewer.playerObject.rotation.y += 0.004;  // ✏️ EDIT: auto-rotate speed
     })();
   </script>
 
