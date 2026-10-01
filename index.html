@@ -89,7 +89,8 @@
       </div>
 
       <!-- ✏️ EDIT: Small note under the buttons -->
-      <p class="hero-note">free &amp; open source · fabric mod · made with 🩷</p>
+      <p class="hero-note">free &amp; open source · fabric mod · made with love</p>
+      <p class="hero-note">Site was used with the help of AI i am stupid :/
 
     </div>
   </header>
@@ -147,13 +148,22 @@
           <p>Monitor your clicks per second live — great for PvP and tracking speed.</p>
         </div>
 
-        <!-- ✏️ NOTE: This card has a "Work in Progress" badge because the feature is buggy -->
-        <!-- Remove the <span class="wip-badge"> line once the feature is fixed! -->
         <div class="feature-card">
           <div class="feature-icon">🐰</div>
           <h3>Bunny Indicator</h3>
           <p>Bunny Client users get a 🐰 before their name so you know who's in the crew.</p>
-          <span class="wip-badge">Work in Progress</span>
+        </div>
+    
+        <div class="feature-card">
+          <div class="feature-icon">📦</div>
+          <h3>Hitboxes</h3>
+          <p>Shows entity and player hitboxes.</p>
+        </div>
+ 
+        <div class="feature-card">
+          <div class="feature-icon">🏃</div>
+          <h3>Toggle sprint/sneak</h3>
+          <p>Toggles the sprint/sneak for you.</p>
         </div>
 
       </div>
@@ -209,6 +219,13 @@
           </div>
         </li>
 
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <strong>Alternatively</strong>
+            <p>Drag &amp; drop it into your mods in any launcher<code>doesnt work with lunar features</code>
+
+
       </ol>
     </div>
   </section>
@@ -229,14 +246,29 @@
       <div class="changelog">
 
         <!-- ✏️ EDIT: One block per version. Newest version goes first (at the top). -->
+
+        <!-- v1.0.1 — newest entry, always keep at the top -->
         <div class="changelog-entry">
           <div class="changelog-meta">
-            <!-- ✏️ EDIT: Version number -->
+            <span class="version-tag">v1.0.1</span>
+            <span class="changelog-date">2026-10-01</span>
+          </div>
+          <!-- Each <li> is one fix/change. The <strong> is the item title, the rest is the description. -->
+          <ul>
+            <li><strong>Entity hitboxes</strong> Fixed, displays the hitboxes correctly now</code>.</li>
+            <li><strong>Toggle Sprint</strong> Fixed, sprints for you, like what'd you expect?</li>
+            <li><strong>Toggle Sneak</strong> Should work, didnt test it to be fair</li>
+            <li><strong>Bunny badge</strong> Fixed, showed the badge on everyone instead of only the users, updates every 20s~ using a backbend</li>
+            <li><strong>Almost</strong> formed a thought</li>
+          </ul>
+        </div>
+
+        <!-- v1.0.0 — initial release -->
+        <div class="changelog-entry">
+          <div class="changelog-meta">
             <span class="version-tag">v1.0.0</span>
-            <!-- ✏️ EDIT: Release date or label -->
             <span class="changelog-date">Initial Release</span>
           </div>
-          <!-- ✏️ EDIT: Each <li> is one change/feature added in this version -->
           <ul>
             <li>FPS Counter overlay</li>
             <li>Coordinates HUD</li>
@@ -311,6 +343,58 @@
 
         </div>
       </div>
+
+      <!-- ════════════════════════════════════════════════════
+           CONTRIBUTORS & BETA TESTERS
+           ✏️ EDIT: Add a card for each person by copying one of the
+                    <div class="contributor-card"> blocks below.
+                    Change the username in BOTH the img src and the
+                    <span class="contributor-name"> tag.
+                    Avatars are automatically loaded from minotar.net
+                    using the Minecraft username — no uploading needed!
+           ════════════════════════════════════════════════════ -->
+      <div class="contributors">
+
+        <h3 class="contributors-title">🌸 Beta Testers &amp; Contributors</h3>
+
+        <div class="contributors-grid">
+
+          <!-- ✏️ EDIT: Copy this whole block to add a new person -->
+          <!-- ✏️ EDIT: Replace "Steve" with their actual Minecraft username in BOTH places below -->
+          <div class="contributor-card">
+            <!-- Avatar loads automatically from their Minecraft username — just change "Steve" -->
+            <img class="contributor-avatar" src="https://minotar.net/avatar/que11/64" alt="que11" />
+            <div class="contributor-info">
+              <span class="contributor-name">que11</span>
+              <!-- ✏️ EDIT: Their role — e.g. "Beta Tester", "Contributor", "Bug Hunter" etc. -->
+              <span class="contributor-role">Beta Tester</span>
+            </div>
+          </div>
+
+          <!-- Placeholder 2 — replace with a real person -->
+          <div class="contributor-card">
+            <img class="contributor-avatar" src="https://minotar.net/avatar/Fedope1033/64" alt="Fedope1033" />
+            <div class="contributor-info">
+              <span class="contributor-name">Fedope1033</span>
+              <span class="contributor-role">Beta Tester</span>
+            </div>
+          </div>
+
+          <!-- Placeholder 3 — replace with a real person, or delete this block if not needed -->
+          <div class="contributor-card">
+            <img class="contributor-avatar" src="https://minotar.net/avatar/Filipson20000000/64" alt="Filipson20000000" />
+            <div class="contributor-info">
+              <span class="contributor-name">Filipson20000000</span>
+              <span class="contributor-role">Moral Support</span>
+            </div>
+          </div>
+
+          <!-- ✏️ Keep adding more cards here following the same pattern! -->
+
+        </div>
+      </div>
+      <!-- end contributors -->
+
     </div>
   </section>
 
