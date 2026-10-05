@@ -4,496 +4,602 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ✏️ EDIT: Change the browser tab title here -->
-  <title>Bunny Client</title>
+  <!-- ✏️ EDIT: browser tab title + the description search engines show -->
+  <title>Bunny Client – a Minecraft client with a bunny in it</title>
+  <meta name="description" content="Bunny Client is a free Fabric mod for Minecraft 1.21.11 with 28 mods, clans, a weekly leaderboard and capes." />
+  <meta name="theme-color" content="#FDF4F9" />
+
+  <!-- Tab icon: the bunny, drawn as SVG so it needs no image file -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='58' fill='%2315161B'/%3E%3Cellipse cx='45' cy='36' rx='9' ry='22' fill='%23D6C8C3'/%3E%3Cellipse cx='75' cy='36' rx='9' ry='22' fill='%23D6C8C3'/%3E%3Cellipse cx='45' cy='38' rx='4.5' ry='14' fill='%23F39AB8'/%3E%3Cellipse cx='75' cy='38' rx='4.5' ry='14' fill='%23F39AB8'/%3E%3Cellipse cx='60' cy='76' rx='30' ry='26' fill='%23D6C8C3'/%3E%3Ccircle cx='50' cy='72' r='3.5' fill='%2315161B'/%3E%3Ccircle cx='70' cy='72' r='3.5' fill='%2315161B'/%3E%3Cellipse cx='60' cy='82' rx='4.5' ry='3.2' fill='%23F07BA0'/%3E%3C/svg%3E" />
+
+  <!-- Fonts: Fredoka (round, friendly headings) and Figtree (clean body text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Fonts: "Nunito" is the main font (rounded & cute but readable) -->
-  <!-- "JetBrains Mono" is used for code snippets and version tags -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ════════════════════════════════════════════════════════
-       NAVBAR — the top navigation bar
-       ✏️ EDIT: Add/remove nav links here. The logo is on the left.
-       ════════════════════════════════════════════════════════ -->
-  <nav class="navbar">
-    <div class="nav-inner">
+  <!-- Shared drawings (the bunny, GitHub logo). Nothing to edit here. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- The bunny face used for the logo and the big mascot -->
+      <symbol id="bunny" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="58" fill="#15161B"/>
+        <ellipse cx="45" cy="36" rx="9" ry="22" fill="#D6C8C3"/>
+        <ellipse cx="75" cy="36" rx="9" ry="22" fill="#D6C8C3"/>
+        <ellipse cx="45" cy="38" rx="4.5" ry="14" fill="#F39AB8"/>
+        <ellipse cx="75" cy="38" rx="4.5" ry="14" fill="#F39AB8"/>
+        <ellipse cx="60" cy="76" rx="30" ry="26" fill="#D6C8C3"/>
+        <circle cx="41" cy="82" r="8.5" fill="#B4C0C8" opacity=".9"/>
+        <circle cx="79" cy="82" r="8.5" fill="#B4C0C8" opacity=".9"/>
+        <circle cx="50" cy="72" r="3.5" fill="#15161B"/>
+        <circle cx="70" cy="72" r="3.5" fill="#15161B"/>
+        <circle cx="51.2" cy="70.8" r="1.1" fill="#fff"/>
+        <circle cx="71.2" cy="70.8" r="1.1" fill="#fff"/>
+        <ellipse cx="60" cy="82" rx="4.5" ry="3.2" fill="#F07BA0"/>
+      </symbol>
+      <symbol id="github" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </symbol>
+    </defs>
+  </svg>
 
-      <!-- ✏️ EDIT: Change the logo text/emoji here -->
-      <a class="nav-logo" href="#">🐰 Bunny Client</a>
-
-      <ul class="nav-links">
-        <!-- ✏️ EDIT: Each <li> is one nav link. href="#id" scrolls to that section -->
-        <li><a href="#features">Features</a></li>
-        <li><a href="#install">Install</a></li>
-        <li><a href="#changelog">Changelog</a></li>
-        <li><a href="#credits">Credits</a></li>
-        <!-- GitHub button — always shown, links to your repo -->
-        <li>
-          <a class="nav-gh" href="https://github.com/clientbunny" target="_blank">
-            <!-- GitHub logo SVG — no need to edit this -->
-            <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-              -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
-              .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-              -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
-              1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
-              1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
-              1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-            </svg>
-            GitHub
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <a class="skip" href="#main">Skip to content</a>
 
   <!-- ════════════════════════════════════════════════════════
-       HERO — the big intro section at the top of the page
+       NAVBAR — floating pill at the top
+       ✏️ EDIT: add/remove links. href="#id" scrolls to that section.
        ════════════════════════════════════════════════════════ -->
-  <header class="hero">
+  <header class="nav">
+    <a class="nav-logo" href="#top" aria-label="Bunny Client, back to top">
+      <svg class="nav-bunny" aria-hidden="true"><use href="#bunny"/></svg>
+      <span>Bunny Client</span>
+    </a>
 
-    <!-- Decorative floating blobs in the background — purely visual, no need to edit -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#clans">Clans</a>
+      <a href="#cosmetics">Capes</a>
+      <a href="#install">Install</a>
+      <a href="#changelog">Changelog</a>
+      <a href="#credits">Credits</a>
+    </nav>
 
-    <div class="hero-inner">
+    <div class="nav-actions">
+      <a class="nav-gh" href="https://github.com/clientbunny" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="18" height="18" aria-hidden="true"><use href="#github"/></svg>
+      </a>
+      <a class="btn btn-primary btn-small" href="https://github.com/clientbunny/bunny-client/releases/latest">Download</a>
 
-      <!-- ✏️ EDIT: The small pill badge above the title (e.g. Minecraft version) -->
-      <div class="hero-badge">✨ Minecraft 1.21.11</div>
-
-      <!-- ✏️ EDIT: Main title -->
-      <h1>🐰 Bunny Client</h1>
-
-      <!-- ✏️ EDIT: Subtitle / short description shown under the title -->
-      <p class="hero-sub">
-        A standalone, Lunar Client‑inspired mod with Discord Rich Presence,
-        quality‑of‑life overlays, and small FPS improvements — all in one adorable package.
-      </p>
-
-      <!-- ✏️ EDIT: Hero buttons. btn-primary = solid pink button, btn-ghost = outlined button -->
-      <!-- Update the href links to point to your actual GitHub releases page -->
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://github.com/clientbunny/bunny-client/releases/latest">
-          ⬇ Download Latest
-        </a>
-        <a class="btn btn-ghost" href="https://github.com/clientbunny/bunny-client" target="_blank">
-          View Source
-        </a>
-      </div>
-
-      <!-- ✏️ EDIT: Small note under the buttons -->
-      <p class="hero-note">free &amp; open source · fabric mod · made with love</p>
-      <p class="hero-note">Site was used with the help of AI i am stupid :/
-
+      <!-- Phone menu (the links above are hidden on small screens) -->
+      <details class="nav-more">
+        <summary aria-label="Open menu"><span></span></summary>
+        <div class="nav-more-panel">
+          <a href="#features">Features</a>
+          <a href="#clans">Clans</a>
+          <a href="#cosmetics">Capes</a>
+          <a href="#install">Install</a>
+          <a href="#changelog">Changelog</a>
+          <a href="#credits">Credits</a>
+        </div>
+      </details>
     </div>
   </header>
 
+  <main id="main">
+
   <!-- ════════════════════════════════════════════════════════
-       FEATURES — grid of feature cards
-       ✏️ EDIT: Copy/paste a <div class="feature-card"> block to add a new feature.
-                Remove a block to remove a feature.
+       HERO
+       ✏️ EDIT: headline, description, buttons. The bunny on the right is clickable.
+       ════════════════════════════════════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-blob hero-blob-a"></div>
+    <div class="hero-blob hero-blob-b"></div>
+
+    <div class="hero-copy">
+      <p class="hero-pills">
+        <span class="pill">Version 1.1.0</span>
+        <span class="pill">Minecraft 1.21.11</span>
+        <span class="pill">Fabric</span>
+      </p>
+
+      <h1>A Minecraft client with a bunny in it.</h1>
+
+      <p class="hero-sub">
+        Bunny Client is a free Fabric mod with 28 mods, clans, a weekly leaderboard and
+        capes, all in a menu that's nice to look at.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://github.com/clientbunny/bunny-client/releases/latest">Download v1.1.0</a>
+        <a class="btn btn-ghost" href="#features">Try the menu</a>
+      </div>
+
+      <p class="hero-note">Free and open source. <a href="https://github.com/clientbunny/bunny-client" target="_blank" rel="noopener">View the code</a></p>
+    </div>
+
+    <!-- The mascot. Click it to build a combo, like the Combo and CPS mods do in game. -->
+    <div class="hero-art">
+      <button class="mascot" id="mascot" type="button" aria-label="Bunny. Click it to build a combo">
+        <svg aria-hidden="true"><use href="#bunny"/></svg>
+      </button>
+
+      <div class="chip chip-fps"><b>144</b> FPS</div>
+      <div class="chip chip-combo"><b id="combo-count">0</b> Combo</div>
+      <div class="chip chip-cps"><b id="cps-count">0</b> CPS</div>
+      <div class="chip chip-reach"><b>3.04</b> Reach</div>
+      <div class="chip chip-keys" aria-hidden="true">
+        <span class="k k-w">W</span><span class="k k-a">A</span><span class="k k-s">S</span><span class="k k-d">D</span>
+      </div>
+      <div class="chip chip-name">
+        <img class="badge" data-badge="owner" alt="" width="32" height="32" />
+        <span class="tag" style="color:#FF77CC">[BNY]</span> bunnyfan
+      </div>
+      <p class="hero-hint">Click the bunny</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       FEATURES — an interactive copy of the in-game menu (built by app.js)
+       ✏️ EDIT: the list of mods lives in app.js (search for "const MODS").
        ════════════════════════════════════════════════════════ -->
   <section id="features" class="section">
     <div class="container">
-      <div class="section-header">
-        <!-- ✏️ EDIT: Section title and subtitle -->
-        <h2>✨ Features</h2>
-        <p>Everything you need, all built right in.</p>
+      <div class="section-head">
+        <h2>28 mods in one menu</h2>
+        <p>This is how the menu works in game. Click a card to switch a mod on or off, and
+           right-click it (or press the dots) for its options.</p>
       </div>
 
-      <div class="features-grid">
+      <div class="app-wrap">
+        <!-- Bunny peeking over the window -->
+        <svg class="peek" viewBox="0 0 200 92" aria-hidden="true">
+          <g class="ear ear-l"><ellipse cx="76" cy="34" rx="14" ry="33" fill="#D6C8C3"/><ellipse cx="76" cy="38" rx="6.5" ry="22" fill="#F39AB8"/></g>
+          <g class="ear ear-r"><ellipse cx="124" cy="34" rx="14" ry="33" fill="#D6C8C3"/><ellipse cx="124" cy="38" rx="6.5" ry="22" fill="#F39AB8"/></g>
+          <ellipse cx="100" cy="90" rx="48" ry="40" fill="#D6C8C3"/>
+          <circle cx="83" cy="78" r="4.6" fill="#15161B"/><circle cx="117" cy="78" r="4.6" fill="#15161B"/>
+          <circle cx="84.4" cy="76.4" r="1.4" fill="#fff"/><circle cx="118.4" cy="76.4" r="1.4" fill="#fff"/>
+          <ellipse cx="62" cy="91" rx="12" ry="7" fill="#D6C8C3"/><ellipse cx="138" cy="91" rx="12" ry="7" fill="#D6C8C3"/>
+        </svg>
 
-        <!-- Each card: change the emoji (feature-icon), title (h3), and description (p) -->
-
-        <div class="feature-card">
-          <div class="feature-icon">📈</div>
-          <h3>FPS Counter</h3>
-          <p>See your frames per second in real time with a clean on‑screen overlay.</p>
+        <div class="app" id="app">
+          <noscript><p class="app-nojs">Turn on JavaScript to try the menu. It lists 28 mods: 14 HUD modules, 8 gameplay mods, 2 performance mods and 4 extras.</p></noscript>
         </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">📍</div>
-          <h3>Coordinates</h3>
-          <p>Always know where you are. X, Y, Z displayed neatly on your HUD.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🎮</div>
-          <h3>Discord Rich Presence</h3>
-          <p>Custom RPC integration — show the world you're playing with Bunny Client.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h3>Armor Status</h3>
-          <p>Track your armor durability at a glance without opening your inventory.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🧪</div>
-          <h3>Potion Status</h3>
-          <p>Active potion effects on your HUD so you never lose track of your buffs.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🖱️</div>
-          <h3>CPS Counter</h3>
-          <p>Monitor your clicks per second live — great for PvP and tracking speed.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🐰</div>
-          <h3>Bunny Indicator</h3>
-          <p>Bunny Client users get a 🐰 before their name so you know who's in the crew.</p>
-        </div>
-    
-        <div class="feature-card">
-          <div class="feature-icon">📦</div>
-          <h3>Hitboxes</h3>
-          <p>Shows entity and player hitboxes.</p>
-        </div>
- 
-        <div class="feature-card">
-          <div class="feature-icon">🏃</div>
-          <h3>Toggle sprint/sneak</h3>
-          <p>Toggles the sprint/sneak for you.</p>
-        </div>
-
       </div>
+
+      <p class="demo-note">A demo. Nothing here changes your game, and your choices reset when you leave the page.</p>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       INSTALL — step-by-step installation guide
-       ✏️ EDIT: Each <li> is one step. Change the text inside <strong> (step title)
-                and <p> (step description). Add more <li> blocks for more steps.
+       CLANS — leaderboard, tag colors, rules, Discord status
        ════════════════════════════════════════════════════════ -->
-  <section id="install" class="section section-tinted">
+  <section id="clans" class="section section-tint">
     <div class="container">
-      <div class="section-header">
-        <!-- ✏️ EDIT: Section title and subtitle -->
-        <h2>🌸 Installation</h2>
-        <p>Get up and running in under a minute.</p>
+      <div class="section-head">
+        <h2>Start a clan and climb the board</h2>
+        <p>Make a clan with your friends, pick a tag color, and see where you rank. Playtime is counted on multiplayer.</p>
       </div>
 
-      <ol class="steps">
+      <div class="bento">
 
-        <li>
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Install Fabric</strong>
-            <!-- ✏️ EDIT: Update the Minecraft version in the link text if needed -->
-            <p>Download and run the <a href="https://fabricmc.net/use/installer/" target="_blank">Fabric Installer</a> for Minecraft <code>1.21.11</code>.</p>
+        <!-- Leaderboard -->
+        <article class="tile tile-board">
+          <header class="tile-top">
+            <h3>Top clans</h3>
+            <div class="seg" role="group" aria-label="Leaderboard period">
+              <button type="button" class="seg-btn is-on" data-period="all">All time</button>
+              <button type="button" class="seg-btn" data-period="week">Weekly</button>
+            </div>
+          </header>
+          <ol class="board" id="board"></ol>
+          <p class="board-foot" id="board-foot"></p>
+        </article>
+
+        <!-- Nametag + colors -->
+        <article class="tile tile-tag">
+          <h3>Your tag, your color</h3>
+          <p>Your clan tag sits on your nametag, right after the bunny badge. Owners pick from 12 colors.</p>
+          <div class="nametag-demo">
+            <div class="nametag">
+              <img class="badge" data-badge="user" alt="" width="32" height="32" />
+              <span class="tag" id="demo-tag">[BNY]</span>
+              <span class="nametag-name">bunnyfan</span>
+            </div>
           </div>
-        </li>
+          <div class="swatches" id="swatches" role="radiogroup" aria-label="Clan tag color"></div>
+        </article>
 
-        <li>
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Add Fabric API</strong>
-            <p>Download <a href="https://modrinth.com/mod/fabric-api" target="_blank">Fabric API</a> and drop it into your <code>.minecraft/mods</code> folder.</p>
+        <!-- Rules -->
+        <article class="tile tile-rules">
+          <h3>How clans work</h3>
+          <ul class="ticks">
+            <li>Tags are 1 to 5 letters or numbers</li>
+            <li>Up to 10 members, one clan per player</li>
+            <li>Invite players, kick, hand over ownership or disband</li>
+            <li>Only multiplayer time counts, and AFK farms count too</li>
+            <li>Playtime is never capped per player</li>
+          </ul>
+        </article>
+
+        <!-- Discord -->
+        <article class="tile tile-discord">
+          <h3>On your Discord profile</h3>
+          <p>On multiplayer your status swaps between your FPS and your clan.</p>
+          <div class="presence">
+            <svg class="presence-icon" aria-hidden="true"><use href="#bunny"/></svg>
+            <div class="presence-text">
+              <strong>Bunny Client</strong>
+              <span>Playing on mc.example.net</span>
+              <span class="presence-line" id="presence-line" aria-live="off">FPS: 144</span>
+            </div>
           </div>
-        </li>
+          <p class="fine">Every 15 seconds in game. This demo is faster. Both the server and clan lines can be turned off.</p>
+        </article>
 
-        <li>
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Download Bunny Client</strong>
-            <!-- ✏️ EDIT: Update this link once you have a releases page -->
-            <p>Grab the latest <code>.jar</code> from the <a href="https://github.com/clientbunny/bunny-client/releases/latest" target="_blank">Releases page</a>.</p>
-          </div>
-        </li>
+      </div>
 
-        <li>
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>Drop it in &amp; launch</strong>
-            <p>Move the <code>.jar</code> into <code>.minecraft/mods</code> and launch Minecraft using the Fabric profile. That's it!</p>
-          </div>
-        </li>
-
-        <li>
-          <div class="step-num">5</div>
-          <div class="step-body">
-            <strong>Alternatively</strong>
-            <p>Drag &amp; drop it into your mods in any launcher<code>doesnt work with lunar features</code>
-
-
-      </ol>
+      <p class="good-to-know">
+        <strong>Good to know.</strong> Clans, badges and capes use the Bunny Client network and need a real
+        Microsoft account. Everything else works offline. The network stores your Minecraft UUID and
+        username, your clan, your multiplayer playtime and your equipped cape. Your login token goes to Mojang only.
+      </p>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       CHANGELOG — version history
-       ✏️ EDIT: Copy a <div class="changelog-entry"> block to add a new version.
-                Put the newest version at the top.
+       CAPES & BADGES
+       ════════════════════════════════════════════════════════ -->
+  <section id="cosmetics" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Win the week, wear the cape</h2>
+        <p>Every Monday at 00:00 UTC, everyone in the #1 clan of the week gets the Weekly Champion cape for the week after.</p>
+      </div>
+
+      <div class="countdown" aria-live="off">
+        <span class="countdown-label">Next champion crowned in</span>
+        <span class="countdown-time" id="countdown">0d 0h 0m</span>
+      </div>
+
+      <div class="capes">
+        <article class="cape-card cape-gold">
+          <div class="cape-preview" data-cape="champion" role="img" aria-label="Weekly Champion cape, gold"></div>
+          <h3>Weekly Champion</h3>
+          <p>Be in the #1 clan on the weekly board. Lasts one week. You need 30 minutes of playtime that week.</p>
+        </article>
+        <article class="cape-card cape-pink">
+          <div class="cape-preview" data-cape="staff" role="img" aria-label="Bunny Team cape, pink"></div>
+          <h3>Bunny Team</h3>
+          <p>Worn by the people who build Bunny Client.</p>
+        </article>
+        <article class="cape-card cape-aqua">
+          <div class="cape-preview" data-cape="beta" role="img" aria-label="Beta Tester cape, aqua"></div>
+          <h3>Beta Tester</h3>
+          <p>A thank you to everyone who tested early builds.</p>
+        </article>
+      </div>
+
+      <div class="badges">
+        <div class="badges-intro">
+          <h3>Spot the crew</h3>
+          <p>Other Bunny Client players get a bunny beside their name. Staff badges have their own color.</p>
+        </div>
+        <ul class="badge-list">
+          <li><div class="nametag"><img class="badge" data-badge="owner" alt="" width="32" height="32" /><span class="nametag-name">Owner</span></div></li>
+          <li><div class="nametag"><img class="badge" data-badge="developer" alt="" width="32" height="32" /><span class="nametag-name">Developer</span></div></li>
+          <li><div class="nametag"><img class="badge" data-badge="beta" alt="" width="32" height="32" /><span class="nametag-name">Beta tester</span></div></li>
+          <li><div class="nametag"><img class="badge" data-badge="user" alt="" width="32" height="32" /><span class="nametag-name">Everyone else</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       INSTALL
+       ✏️ EDIT: each <li> is one step. Add more <li> blocks for more steps.
+       ════════════════════════════════════════════════════════ -->
+  <section id="install" class="section section-tint">
+    <div class="container">
+      <div class="section-head">
+        <h2>Install it in a minute</h2>
+        <p>Four steps, then press Right Shift in game.</p>
+      </div>
+
+      <div class="install-grid">
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <div>
+              <strong>Install Fabric</strong>
+              <p>Run the <a href="https://fabricmc.net/use/installer/" target="_blank" rel="noopener">Fabric Installer</a> for Minecraft <code>1.21.11</code>.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <div>
+              <strong>Add Fabric API</strong>
+              <p>Download <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener">Fabric API</a> and put it in your <code>.minecraft/mods</code> folder.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <div>
+              <strong>Download Bunny Client</strong>
+              <p>Get the latest <code>.jar</code> from the <a href="https://github.com/clientbunny/bunny-client/releases/latest" target="_blank" rel="noopener">Releases page</a>.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">4</span>
+            <div>
+              <strong>Drop it in and launch</strong>
+              <p>Move the <code>.jar</code> into <code>.minecraft/mods</code> and start the Fabric profile. Press <span class="k">Right Shift</span> to open the menu.</p>
+            </div>
+          </li>
+        </ol>
+
+        <aside class="keys-card">
+          <h3>Default keys</h3>
+          <p class="fine">Change any of them in Options, then Controls.</p>
+          <dl class="keys">
+            <div><dt><span class="k">Right Shift</span></dt><dd>Open the menu</dd></div>
+            <div><dt><span class="k">C</span></dt><dd>Zoom (hold)</dd></div>
+            <div><dt><span class="k">G</span></dt><dd>Fullbright</dd></div>
+            <div><dt><span class="k">H</span></dt><dd>Entity hitboxes</dd></div>
+            <div><dt><span class="k">B</span></dt><dd>Sprint on or off</dd></div>
+            <div><dt><span class="k">Left Alt</span></dt><dd>Freelook (hold)</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <p class="install-alt">
+        <strong>Another launcher?</strong> Any launcher that supports Fabric works. Add the
+        <code>.jar</code> to that instance's mods folder. Bunny Client does not add Lunar Client's own features.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       CHANGELOG
+       ✏️ EDIT: copy an <article class="release"> block to add a version. Newest goes first.
        ════════════════════════════════════════════════════════ -->
   <section id="changelog" class="section">
     <div class="container">
-      <div class="section-header">
-        <!-- ✏️ EDIT: Section title and subtitle -->
-        <h2>📋 Changelog</h2>
-        <p>What's new in each release.</p>
+      <div class="section-head">
+        <h2>What's new</h2>
+        <p>Every release, newest first.</p>
       </div>
 
-      <div class="changelog">
+      <div class="releases">
 
-        <!-- ✏️ EDIT: One block per version. Newest version goes first (at the top). -->
+        <!-- v1.1.0 -->
+        <article class="release release-latest">
+          <header class="release-head">
+            <span class="version-tag">v1.1.0</span>
+            <span class="release-date">October 4, 2026</span>
+            <span class="release-new">Latest</span>
+          </header>
+          <p class="release-lead">Clans, capes, mod options, a redesigned menu and a batch of new mods.</p>
 
-        <!-- v1.0.1 — newest entry, always keep at the top -->
-        <div class="changelog-entry">
-          <div class="changelog-meta">
+          <div class="release-group">
+            <h3>Clans and capes</h3>
+            <ul>
+              <li><strong>Clans.</strong> Create a clan, invite players, kick, hand over ownership or disband. Tags are 1 to 5 letters or numbers, with 12 tag colors, up to 10 members and one clan per player.</li>
+              <li><strong>Weekly and all-time leaderboards.</strong> The top 10 clans, switchable between all time and weekly. The weekly board resets every Monday at 00:00 UTC and shows last week's champion.</li>
+              <li><strong>Clan tags on nametags.</strong> Your tag shows after the bunny badge, in your clan's color.</li>
+              <li><strong>Weekly Champion cape.</strong> Every member of the #1 clan with at least 30 minutes of playtime gets a gold cape for the following week. Playtime is not capped.</li>
+              <li><strong>Cosmetics screen</strong> to equip or remove capes. The Bunny team and beta testers have their own capes.</li>
+              <li><strong>Verified login.</strong> The mod signs in through Mojang, so UUIDs can't be faked. Network features need a real Microsoft account.</li>
+              <li><strong>Discord status</strong> now alternates between your FPS and your clan on multiplayer, with an option to turn the clan line off.</li>
+            </ul>
+          </div>
+
+          <div class="release-group">
+            <h3>Menu and options</h3>
+            <ul>
+              <li><strong>Right-click any mod for its options.</strong> Entity Hitboxes lets you pick which entities get a box. Custom Crosshair has style, size, thickness, gap, color and outline. Zoom, Entity Culling, Particle Limiter, Freelook and Discord have options too.</li>
+              <li><strong>Every HUD module</strong> can change its background, border, text color and label color.</li>
+              <li><strong>A new look.</strong> A sidebar with icons, a searchable mod grid with category filters, rounded animated controls, and a new title screen.</li>
+            </ul>
+          </div>
+
+          <div class="release-group">
+            <h3>New mods</h3>
+            <ul>
+              <li><strong>HUD:</strong> Combo Counter, Reach Display, Speed, Item Counter, Clock and Memory Usage.</li>
+              <li><strong>Freelook.</strong> Hold a key to look around while your aim stays put.</li>
+              <li><strong>Clear Weather.</strong> Hide rain and thunder on your screen only.</li>
+            </ul>
+          </div>
+
+          <div class="release-group">
+            <h3>Fixed</h3>
+            <ul>
+              <li><strong>Fullbright</strong> now works without a night vision potion and puts your brightness back when you turn it off.</li>
+              <li><strong>Entity Culling, Particle Limiter and Custom Crosshair</strong> now actually do something. Before, their switches changed a setting that nothing used.</li>
+              <li><strong>Zoom FOV</strong> is respected, and zoom eases back out after you let go.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- v1.0.1 -->
+        <details class="release">
+          <summary class="release-head">
             <span class="version-tag">v1.0.1</span>
-            <span class="changelog-date">2026-10-01</span>
+            <span class="release-date">October 1, 2026</span>
+          </summary>
+          <div class="release-group">
+            <h3>Fixed</h3>
+            <ul>
+              <li><strong>Entity hitboxes</strong> no longer crash the game and display correctly.</li>
+              <li><strong>Toggle Sprint</strong> sprints for you again. <strong>Toggle Sneak</strong> works too.</li>
+              <li><strong>Bunny badge</strong> now shows only beside players who use Bunny Client, instead of everyone. It uses a custom icon, because the old emoji never showed in Minecraft's font.</li>
+            </ul>
           </div>
-          <!-- Each <li> is one fix/change. The <strong> is the item title, the rest is the description. -->
-          <ul>
-            <li><strong>Entity hitboxes</strong> Fixed, displays the hitboxes correctly now</code>.</li>
-            <li><strong>Toggle Sprint</strong> Fixed, sprints for you, like what'd you expect?</li>
-            <li><strong>Toggle Sneak</strong> Should work, didnt test it to be fair</li>
-            <li><strong>Bunny badge</strong> Fixed, showed the badge on everyone instead of only the users, updates every 20s~ using a backbend</li>
-            <li><strong>Almost</strong> formed a thought</li>
-          </ul>
-        </div>
+          <div class="release-group">
+            <h3>Added</h3>
+            <ul>
+              <li>A small server so the mod knows who else uses it, which updates about every 20 seconds.</li>
+              <li>Colored badges for the team: red for the owner, purple for developers, aqua for beta testers.</li>
+              <li>A redesigned mod menu with search and categories, and a new title screen.</li>
+            </ul>
+          </div>
+        </details>
 
-        <!-- v1.0.0 — initial release -->
-        <div class="changelog-entry">
-          <div class="changelog-meta">
+        <!-- v1.0.0 -->
+        <details class="release">
+          <summary class="release-head">
             <span class="version-tag">v1.0.0</span>
-            <span class="changelog-date">Initial Release</span>
-          </div>
-          <ul>
+            <span class="release-date">Initial release</span>
+          </summary>
+          <ul class="release-flat">
             <li>FPS Counter overlay</li>
             <li>Coordinates HUD</li>
             <li>Discord Rich Presence integration</li>
-            <li>Armor &amp; Potion status displays</li>
+            <li>Armor and Potion status displays</li>
             <li>CPS Counter</li>
-            <li>🐰 Bunny player indicator <em>(WIP — currently shows on all players)</em></li>
+            <li>Bunny player indicator (it showed on all players at first)</li>
           </ul>
-        </div>
+        </details>
 
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════════════════
-       CREDITS — 3D skin viewer + bio
+       CREDITS — 3D skin viewer + bio + beta testers
        ════════════════════════════════════════════════════════ -->
-  <section id="credits" class="section section-tinted">
+  <section id="credits" class="section section-tint">
     <div class="container">
-      <div class="section-header">
-        <!-- ✏️ EDIT: Section title and subtitle -->
-        <h2>Credits</h2>
+      <div class="section-head">
+        <h2>Made by</h2>
         <p>The person behind Bunny Client.</p>
       </div>
 
       <div class="credits-card">
-
-        <!-- 3D skin viewer — the canvas is controlled by the script at the bottom of the page -->
         <div class="skin-wrapper">
-          <!-- ✏️ NOTE: This text is overwritten by JavaScript below. Edit MC_USERNAME / DISPLAY_NAME there. -->
-          <div class="nametag" id="nametag-text">6cutefemboy7</div>
-          <canvas id="skin-canvas"></canvas>
-          <p class="skin-hint">drag to rotate ✨</p>
+          <!-- ✏️ NOTE: this name is filled in by the script at the bottom of the page -->
+          <div class="skin-nametag" id="nametag-text">6cutefemboy7</div>
+          <canvas id="skin-canvas" aria-label="3D model of the developer's Minecraft skin. Drag to rotate."></canvas>
+          <p class="skin-hint">Drag to rotate</p>
         </div>
 
-        <!-- Bio section — edit the text here freely -->
         <div class="credits-bio">
-
-          <!-- ✏️ NOTE: This is also overwritten by JS. Edit DISPLAY_NAME in the script below. -->
           <h3 class="credits-name">6cutefemboy7</h3>
-
-          <!-- ✏️ EDIT: Your role/title shown under your name -->
-          <p class="credits-role">🐰 Lead Developer &amp; Creator</p>
-
-          <!-- ✏️ EDIT: Your bio! Write whatever you want here. -->
+          <p class="credits-role">Lead developer and creator</p>
+          <!-- ✏️ EDIT: your bio -->
           <p class="credits-text">
-            Hi, i am xythea, bunny client's creator and lead dev, if you want to inquire about something dm me on discord
+            Hi, I'm xythea, Bunny Client's creator and lead dev. If you want to ask me something, DM me on Discord.
           </p>
-
-          <!-- ✏️ EDIT: Add/remove social links here. Each <a> is one button. -->
           <div class="credits-links">
-            <a href="https://discord.gg/bunnyclient" target="_blank">🎮 Discord</a>
-            <a href="https://github.com/clientbunny" target="_blank">
-              <!-- GitHub icon SVG -->
-              <svg height="15" viewBox="0 0 16 16" width="15" fill="currentColor">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-                -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
-                .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-                -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
-                1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
-                1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
-                1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-              GitHub
+            <a class="btn btn-ghost btn-small" href="https://discord.gg/bunnyclient" target="_blank" rel="noopener">Discord</a>
+            <a class="btn btn-ghost btn-small" href="https://github.com/clientbunny" target="_blank" rel="noopener">
+              <svg width="15" height="15" aria-hidden="true"><use href="#github"/></svg> GitHub
             </a>
-            <!-- ✏️ EDIT: Add more links like this:
-            <a href="https://discord.gg/yourserver" target="_blank">🎮 Discord</a>
-            <a href="https://twitter.com/yourhandle" target="_blank">🐦 Twitter</a>
-            -->
           </div>
-
         </div>
       </div>
 
-      <!-- ════════════════════════════════════════════════════
-           CONTRIBUTORS & BETA TESTERS
-           ✏️ EDIT: Add a card for each person by copying one of the
-                    <div class="contributor-card"> blocks below.
-                    Change the username in BOTH the img src and the
-                    <span class="contributor-name"> tag.
-                    Avatars are automatically loaded from minotar.net
-                    using the Minecraft username — no uploading needed!
-           ════════════════════════════════════════════════════ -->
+      <!-- ✏️ EDIT: copy a <li> to add a person. Change the username in BOTH the img src and the name.
+           Avatars load from minotar.net using the Minecraft username. -->
       <div class="contributors">
-
-        <h3 class="contributors-title">🌸 Beta Testers &amp; Contributors</h3>
-
-        <div class="contributors-grid">
-
-          <!-- ✏️ EDIT: Copy this whole block to add a new person -->
-          <!-- ✏️ EDIT: Replace "Steve" with their actual Minecraft username in BOTH places below -->
-          <div class="contributor-card">
-            <!-- Avatar loads automatically from their Minecraft username — just change "Steve" -->
-            <img class="contributor-avatar" src="https://minotar.net/avatar/que11/64" alt="que11" />
-            <div class="contributor-info">
-              <span class="contributor-name">que11</span>
-              <!-- ✏️ EDIT: Their role — e.g. "Beta Tester", "Contributor", "Bug Hunter" etc. -->
-              <span class="contributor-role">Beta Tester</span>
-            </div>
-          </div>
-
-          <!-- Placeholder 2 — replace with a real person -->
-          <div class="contributor-card">
-            <img class="contributor-avatar" src="https://minotar.net/avatar/Fedope1033/64" alt="Fedope1033" />
-            <div class="contributor-info">
-              <span class="contributor-name">Fedope1033</span>
-              <span class="contributor-role">Beta Tester</span>
-            </div>
-          </div>
-
-          <!-- Placeholder 3 — replace with a real person, or delete this block if not needed -->
-          <div class="contributor-card">
-            <img class="contributor-avatar" src="https://minotar.net/avatar/Filipson20000000/64" alt="Filipson20000000" />
-            <div class="contributor-info">
-              <span class="contributor-name">Filipson20000000</span>
-              <span class="contributor-role">Moral Support</span>
-            </div>
-          </div>
-
-          <!-- ✏️ Keep adding more cards here following the same pattern! -->
-
-        </div>
+        <h3>Beta testers and friends</h3>
+        <ul class="contributors-grid">
+          <li class="contributor">
+            <img class="contributor-avatar" src="https://minotar.net/avatar/que11/64" alt="" width="48" height="48" />
+            <span class="contributor-name">que11</span>
+            <span class="contributor-role">Beta Tester</span>
+          </li>
+          <li class="contributor">
+            <img class="contributor-avatar" src="https://minotar.net/avatar/Fedope1033/64" alt="" width="48" height="48" />
+            <span class="contributor-name">Fedope1033</span>
+            <span class="contributor-role">Beta Tester</span>
+          </li>
+          <li class="contributor">
+            <img class="contributor-avatar" src="https://minotar.net/avatar/Filipson20000000/64" alt="" width="48" height="48" />
+            <span class="contributor-name">Filipson20000000</span>
+            <span class="contributor-role">Moral Support</span>
+          </li>
+        </ul>
       </div>
-      <!-- end contributors -->
-
     </div>
   </section>
 
+  </main>
+
   <!-- ════════════════════════════════════════════════════════
        FOOTER
-       ✏️ EDIT: Update the text and links here.
        ════════════════════════════════════════════════════════ -->
   <footer class="footer">
-    <div class="container">
-      <!-- ✏️ EDIT: Footer tagline -->
-      <p class="footer-logo">🐰 Bunny Client</p>
-      <p class="footer-sub">free &amp; open source minecraft mod · made with 💜</p>
-      <p class="footer-link">
-        <!-- ✏️ EDIT: Update this link to your actual repo -->
-        <a href="https://github.com/clientbunny/bunny-client" target="_blank">github.com/clientbunny/bunny-client</a>
-      </p>
+    <div class="footer-inner">
+      <a class="footer-logo" href="#top">
+        <svg class="nav-bunny" aria-hidden="true"><use href="#bunny"/></svg>
+        <span>Bunny Client</span>
+      </a>
+      <p>Free and open source Minecraft mod, made with love.</p>
+      <p><a href="https://github.com/clientbunny/bunny-client" target="_blank" rel="noopener">github.com/clientbunny/bunny-client</a></p>
+      <p class="fine">Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft. This site was built with help from AI.</p>
     </div>
   </footer>
 
+  <script src="assets.js"></script>
+  <script src="app.js"></script>
 
   <!-- ════════════════════════════════════════════════════════
-       3D SKIN VIEWER SCRIPT
-       ✏️ EDIT: When you change your username, update these two values:
-                  MC_USERNAME  → your Minecraft username (used to load your skin)
-                  DISPLAY_NAME → what shows on the nametag and in the heading
+       3D SKIN VIEWER (the credits section)
+       ✏️ EDIT: when your username changes, update the two lines below.
        ════════════════════════════════════════════════════════ -->
-
-  <!-- skinview3d library — renders the 3D Minecraft character, loaded from CDN (no install needed) -->
-  <script src="https://unpkg.com/skinview3d@latest/bundles/skinview3d.bundle.js"></script>
+  <script src="https://unpkg.com/skinview3d@3/bundles/skinview3d.bundle.js"></script>
   <script>
-    // ✏️ EDIT THESE TWO LINES when you change your username ─────────
-    const MC_USERNAME  = "6cutefemboy7";  // Your Minecraft username (used to fetch skin + cape)
-    const DISPLAY_NAME = "6cutefemboy7";  // What shows on the nametag and heading
-    // ────────────────────────────────────────────────────────────────
+    // ✏️ EDIT THESE TWO LINES
+    const MC_USERNAME  = "6cutefemboy7";  // your Minecraft username (loads your skin and cape)
+    const DISPLAY_NAME = "6cutefemboy7";  // what shows on the nametag and heading
 
-    // Update all the text elements that show your name
     document.getElementById("nametag-text").textContent = DISPLAY_NAME;
     document.querySelectorAll(".credits-name").forEach(el => el.textContent = DISPLAY_NAME);
 
-    // Create the 3D skin viewer on the <canvas id="skin-canvas"> element
-    const viewer = new skinview3d.SkinViewer({
-      canvas: document.getElementById("skin-canvas"),
-      width:  220,   // ✏️ EDIT: canvas width in pixels
-      height: 380,   // ✏️ EDIT: canvas height in pixels
-      // Loads your skin from minotar.net using your MC username
-      skin: `https://minotar.net/skin/${MC_USERNAME}`,
-    });
+    if (window.skinview3d) {
+      const viewer = new skinview3d.SkinViewer({
+        canvas: document.getElementById("skin-canvas"),
+        width: 220,
+        height: 340,
+        skin: `https://minotar.net/skin/${MC_USERNAME}`,
+      });
 
-    // ── Cape Loader ───────────────────────────────────────────────────
-    // Automatically fetches your Mojang cape from the Ashcon API.
-    // The cape will appear on the 3D model if your account has one.
-    // If you have no cape, or the API is unreachable, it fails silently.
-    (async () => {
-      try {
-        // Ashcon is a free, CORS-friendly Mojang profile API
-        const res  = await fetch(`https://api.ashcon.app/mojang/v2/user/${MC_USERNAME}`);
-        const data = await res.json();
-
-        // The API returns a cape URL if you have a Mojang cape
-        const capeUrl = data?.textures?.cape?.url;
-
-        if (capeUrl) {
-          // Load the cape onto the 3D model
-          await viewer.loadCape(capeUrl);
-          // ✏️ EDIT: Set to "back" to show the cape on the back, or remove this line to use default
-          viewer.playerObject.cape.visible = back;
+      // Load your Mojang cape if you have one. If not, or if the API is down, nothing happens.
+      (async () => {
+        try {
+          const res  = await fetch(`https://api.ashcon.app/mojang/v2/user/${MC_USERNAME}`);
+          const data = await res.json();
+          const capeUrl = data?.textures?.cape?.url;
+          if (capeUrl) await viewer.loadCape(capeUrl);
+        } catch (e) {
+          console.warn("Could not load cape:", e);
         }
-        // If there's no cape on your account, nothing happens — no error shown
-      } catch (e) {
-        // Cape failed to load (e.g. offline, rate-limited) — skin still shows fine
-        console.warn("Could not load cape:", e);
-      }
-    })();
-    // ─────────────────────────────────────────────────────────────────
+      })();
 
-    // Slow walking animation — other options: IdleAnimation, RunningAnimation
-    viewer.animation = new skinview3d.WalkingAnimation();
-    viewer.animation.speed = 0.45;  // ✏️ EDIT: animation speed (lower = slower)
+      viewer.animation = new skinview3d.WalkingAnimation();
+      viewer.animation.speed = 0.45;
 
-    // Mouse/touch controls
-    viewer.controls.enableRotate = true;   // allow drag-to-rotate
-    viewer.controls.enableZoom   = false;  // disable scroll-to-zoom
-    viewer.controls.enablePan    = false;  // disable panning
+      viewer.controls.enableRotate = true;
+      viewer.controls.enableZoom   = false;
+      viewer.controls.enablePan    = false;
+      viewer.camera.rotation.x = -0.08;
 
-    // Slight tilt on the camera for a nicer default look
-    viewer.camera.rotation.x = -0.08;
-
-    // Auto-rotate slowly — pauses when you drag, resumes 2 seconds after you let go
-    let autoRotate = true;
-    viewer.canvas.addEventListener("mousedown",  () => autoRotate = false);
-    viewer.canvas.addEventListener("touchstart", () => autoRotate = false, { passive: true });
-    viewer.canvas.addEventListener("mouseup",    () => setTimeout(() => autoRotate = true, 2000));
-    viewer.canvas.addEventListener("touchend",   () => setTimeout(() => autoRotate = true, 2000));
-
-    // Animation loop — runs every frame
-    (function tick() {
-      requestAnimationFrame(tick);
-      if (autoRotate) viewer.playerObject.rotation.y += 0.004;  // ✏️ EDIT: auto-rotate speed
-    })();
+      // Slow auto-rotate that pauses while you drag
+      let autoRotate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const allowSpin = !autoRotate ? false : true;
+      viewer.canvas.addEventListener("mousedown",  () => autoRotate = false);
+      viewer.canvas.addEventListener("touchstart", () => autoRotate = false, { passive: true });
+      viewer.canvas.addEventListener("mouseup",    () => { if (allowSpin) setTimeout(() => autoRotate = true, 2000); });
+      viewer.canvas.addEventListener("touchend",   () => { if (allowSpin) setTimeout(() => autoRotate = true, 2000); });
+      (function tick() {
+        requestAnimationFrame(tick);
+        if (autoRotate) viewer.playerObject.rotation.y += 0.004;
+      })();
+    }
   </script>
 
 </body>
